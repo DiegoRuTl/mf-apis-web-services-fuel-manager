@@ -8,12 +8,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20240404212033_M01.cs" />
+    <Compile Remove="Migrations\20240404212033_M01.Designer.cs" />
+    <Compile Remove="Migrations\20240406135618_M02.cs" />
+    <Compile Remove="Migrations\20240406135618_M02.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="OpenXmlPowerTools" Version="4.5.3.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

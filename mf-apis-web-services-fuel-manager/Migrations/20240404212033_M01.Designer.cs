@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mf_apis_web_services_fuel_manager.Models;
 
@@ -11,9 +12,11 @@ using mf_apis_web_services_fuel_manager.Models;
 namespace mf_apis_web_services_fuel_manager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240404212033_M01")]
+    partial class M01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,9 +39,6 @@ namespace mf_apis_web_services_fuel_manager.Migrations
                     b.Property<int>("Tipo")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Valor")
                         .HasColumnType("decimal(18,2)");
 
@@ -50,8 +50,6 @@ namespace mf_apis_web_services_fuel_manager.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.HasIndex("VeiculoID");
 
@@ -162,10 +160,6 @@ namespace mf_apis_web_services_fuel_manager.Migrations
 
             modelBuilder.Entity("mf_apis_web_services_fuel_manager.Models.Consumo", b =>
                 {
-                    b.HasOne("mf_apis_web_services_fuel_manager.Models.Usuario", null)
-                        .WithMany("Consumos")
-                        .HasForeignKey("UsuarioId");
-
                     b.HasOne("mf_apis_web_services_fuel_manager.Models.Veiculo", "Veiculo")
                         .WithMany("Consumos")
                         .HasForeignKey("VeiculoID")
@@ -212,8 +206,6 @@ namespace mf_apis_web_services_fuel_manager.Migrations
 
             modelBuilder.Entity("mf_apis_web_services_fuel_manager.Models.Usuario", b =>
                 {
-                    b.Navigation("Consumos");
-
                     b.Navigation("Veiculos");
                 });
 
